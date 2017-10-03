@@ -29,10 +29,13 @@ AndroidAPKInfoPlugin.packageSignatures("com.company.packagename", function(resul
   "signatures": [
       {
         "charString": "aeawqwq....",
-        "hashcode": 342234324234,
+        "hashcode": -1742539072,
+        "md5": "93696578d4732e2a26fe716c87fa4a27",
+        "sha1": "d5b10f4aa415448994424e3e2b6d131d9caa03ad",
+        "sha256": "58241fba136c1e2c82a55b54b456ac2ed4be2e0f0c1a78cd08c0833e67a9e6ee",
         "info": {
           "issuer_dn": "CN=Android Debug, O=Android, C=US",
-          "serialnumber": 13242134123,
+          "serialnumber": 1194529253,
           "subject_dn": "CN=Android Debug, O=Android, C=US"
         }
       }

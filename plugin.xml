@@ -2,7 +2,7 @@
 
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     id="cordova-plugin-androidapkinfo"
-    version="1.0.2">
+    version="1.0.3">
     <name>Cordova Plugin To Extract infos from APK</name>
     <description></description>
     <license>MIT</license>
@@ -30,6 +30,7 @@
         </feature>
       </config-file>
 
+      <source-file src="src/android/libs/commons-codec-1.10.jar" target-dir="libs"/>
       <source-file src="src/android/net/siteed/AndroidAPKInfoPlugin.java" target-dir="src/net/siteed/" />
     </platform>
 </plugin>

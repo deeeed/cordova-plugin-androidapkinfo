@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.util.Log;
 
+import org.apache.commons.codec.binary.Hex;
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
@@ -22,6 +23,9 @@ import java.io.InputStream;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
+
+import org.apache.commons.codec.digest.DigestUtils;
+
 
 public class AndroidAPKInfoPlugin extends CordovaPlugin {
     private static final String TAG = "AndroidAPKInfoPlugin";
@@ -112,6 +116,27 @@ public class AndroidAPKInfoPlugin extends CordovaPlugin {
         for (Signature sig : sigs) {
             Log.i(TAG, "Signature hashcode : " + sig.hashCode());
             JSONObject jsonSig = new JSONObject();
+
+            // Cannot directly use DigestUtils hex methods
+            // See https://stackoverflow.com/questions/9126567/method-not-found-using-digestutils-in-android
+            try {
+                String md5 = new String(Hex.encodeHex(DigestUtils.md5(sig.toByteArray())));
+                jsonSig.put("md5", md5);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                String sha1 = new String(Hex.encodeHex(DigestUtils.sha1(sig.toByteArray())));
+                jsonSig.put("sha1", sha1);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            try {
+                String sha256 = new String(Hex.encodeHex(DigestUtils.sha256(sig.toByteArray())));
+                jsonSig.put("sha256", sha256);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
             jsonSig.put("hashcode", sig.hashCode());
             jsonSig.put("charsString", sig.toCharsString());
             jsonSig.put("info", getSignatureInfo(sig));
