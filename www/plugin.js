@@ -1,15 +1,18 @@
 
 var exec = require('cordova/exec');
 
-var PLUGIN_NAME = 'AndroidAPKInfo';
+var PLUGIN_NAME = 'AndroidAPKInfoPlugin';
 
-var AndroidAPKInfo = {
-  echo: function(phrase, cb) {
-    exec(cb, null, PLUGIN_NAME, 'echo', [phrase]);
+var AndroidAPKInfoPlugin = {
+  signatures: function(cb) {
+    exec(cb, null, PLUGIN_NAME, 'signatures', []);
   },
-  getDate: function(cb) {
-    exec(cb, null, PLUGIN_NAME, 'getDate', []);
+  APKSignatures: function(params, cb) {
+    exec(cb, null, PLUGIN_NAME, 'APKSignatures', [params]);
+  },
+  packageSignatures: function(params, cb) {
+    exec(cb, null, PLUGIN_NAME, 'packageSignatures', [params]);
   }
 };
 
-module.exports = AndroidAPKInfo;
+module.exports = AndroidAPKInfoPlugin;
