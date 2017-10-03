@@ -1,0 +1,20 @@
+{
+  "name": "cordova-plugin-androidapkinfo",
+  "version": "1.0.0",
+  "author": {
+    "name" : "Arthur Breton",
+    "email" : "abreton@siteed.net",
+    "url" : "http://siteed.net/"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "https://github.com/deeeed/cordova-plugin-fixioskeyboard"
+  },
+  "cordova": {
+    "id": "cordova-plugin-template",
+    "platforms": [
+      "android"
+    ]
+  },
+  "description": "Extract APK infos"
+}

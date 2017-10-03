@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="cordova-plugin-androidapkinfo"
+    version="1.0.0">
+    <name>Cordova Plugin To Extract infos from APK</name>
+    <description></description>
+    <license>MIT</license>
+    <author>Arthur Breton</author>
+    <keywords>IOS Keyboard Slow</keywords>
+    <repo>https://github.com/deeeed/cordova-plugin-fixioskeyboard</repo>
+    <issue>https://github.com/deeeed/cordova-plugin-fixioskeyboard/issues</issue>
+
+    <!-- android -->
+    <platform name="android">
+      <js-module src="www/plugin.js" name="plugin">
+        <runs/>
+
+        <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
+        <clobbers target="AndroidAPKInfo" />
+      </js-module>
+      <config-file target="res/xml/config.xml" parent="/*">
+        <feature name="MyCordovaPlugin">
+          <param name="android-package" value="net.siteed.AndroidAPKInfoPlugin" />
+          <param name="onload" value="true" />
+        </feature>
+      </config-file>
+
+      <source-file src="src/android/com/example/MyCordovaPlugin.java" target-dir="src/com/example/" />
+    </platform>
+</plugin>
