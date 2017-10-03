@@ -19,6 +19,7 @@
         <clobbers target="AndroidAPKInfoPlugin" />
       </js-module>
       <config-file target="res/xml/config.xml" parent="/*">
+        <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
         <feature name="AndroidAPKInfoPlugin">
           <param name="android-package" value="net.siteed.AndroidAPKInfoPlugin" />
           <param name="onload" value="true" />
