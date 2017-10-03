@@ -18,8 +18,12 @@
         <!-- This is the window variable name you want, like window.MyCordovaPlugin -->
         <clobbers target="AndroidAPKInfoPlugin" />
       </js-module>
-      <config-file target="res/xml/config.xml" parent="/*">
+
+      <config-file target="AndroidManifest.xml" parent="/*">
         <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+      </config-file>
+
+      <config-file target="res/xml/config.xml" parent="/*">
         <feature name="AndroidAPKInfoPlugin">
           <param name="android-package" value="net.siteed.AndroidAPKInfoPlugin" />
           <param name="onload" value="true" />
